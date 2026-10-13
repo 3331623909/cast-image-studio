@@ -156,7 +156,20 @@ def inspect(candidate: Path, image: dict[str, Any]) -> dict[str, Any]:
     }
 
 
+def force_utf8_streams() -> None:
+    """Pin stdout/stderr to UTF-8 so a Windows console code page cannot break the output."""
+    for stream in (sys.stdout, sys.stderr):
+        reconfigure = getattr(stream, "reconfigure", None)
+        if reconfigure is None:
+            continue
+        try:
+            reconfigure(encoding="utf-8")
+        except (ValueError, OSError):
+            pass
+
+
 def main() -> int:
+    force_utf8_streams()
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--candidate", required=True)
     parser.add_argument("--run-dir")

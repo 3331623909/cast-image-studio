@@ -1417,7 +1417,26 @@ def status(args: argparse.Namespace) -> dict[str, Any]:
 
 
 # --------------------------------------------------------------------------- cli
+def force_utf8_streams() -> None:
+    """Make stdout/stderr write UTF-8 regardless of the console's legacy code page.
+
+    The emitted records carry Chinese aliases and text, and they are printed with
+    ``ensure_ascii=False`` so they stay readable. On a Windows console whose code page
+    is cp936/cp1252 that combination raises UnicodeEncodeError, so the encoding is
+    pinned here instead of depending on the environment.
+    """
+    for stream in (sys.stdout, sys.stderr):
+        reconfigure = getattr(stream, "reconfigure", None)
+        if reconfigure is None:
+            continue
+        try:
+            reconfigure(encoding="utf-8")
+        except (ValueError, OSError):
+            pass
+
+
 def main() -> int:
+    force_utf8_streams()
     parser = argparse.ArgumentParser(description=__doc__)
     commands = parser.add_subparsers(dest="command", required=True)
 
