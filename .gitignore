@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# Editors and OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Run artifacts — a skill repo ships the skill, not one run's byproducts
+artifacts/
+staging/
+runs/
+*.materialize.json
+automatic.json
+review.json
+*_candidate.png
+
+# Local skill config, if the host ever writes one here. Secrets never ship.
+.dsh-skill-config.json
+*.local.json
+.env
+.env.*

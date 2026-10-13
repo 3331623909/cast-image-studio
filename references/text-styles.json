@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "default": "01_speech-balloon",
+  "note": "The catalogue of lettering treatments. The machine-readable authority is this file; each template's own `template.md` holds the paragraph that is copied into the prompt. A template's reference image is loaded as the image's single `lettering` + `typography` reference so the model sees the treatment instead of guessing it.",
+  "rules": [
+    "Pick one template per image and keep it for every panel of that image.",
+    "Every panel needs at least one core_text line, caption or sound effect; a silent panel is not allowed.",
+    "Never let lettering cover a face, a hand, the acting gesture or a panel border.",
+    "The reference fixes the treatment only; the wording comes from core_text and is never copied from the reference."
+  ],
+  "templates": {
+    "01_speech-balloon": {
+      "label": "Speech balloon",
+      "reference": "assets/text-style-templates/01_speech-balloon/reference.webp",
+      "use_for": "the default conversational line",
+      "deliveries": ["speech"]
+    },
+    "02_burst-shout": {
+      "label": "Burst shout",
+      "reference": "assets/text-style-templates/02_burst-shout/reference.webp",
+      "use_for": "a shouted line, an accusation or sudden anger",
+      "deliveries": ["speech"]
+    },
+    "03_thought-cloud": {
+      "label": "Thought cloud",
+      "reference": "assets/text-style-templates/03_thought-cloud/reference.webp",
+      "use_for": "an unspoken thought",
+      "deliveries": ["thought"]
+    },
+    "04_caption-box": {
+      "label": "Caption box",
+      "reference": "assets/text-style-templates/04_caption-box/reference.webp",
+      "use_for": "narration, time and place, the story's own voice",
+      "deliveries": ["caption"]
+    },
+    "05_manga-impact": {
+      "label": "Manga impact",
+      "reference": "assets/text-style-templates/05_manga-impact/reference.webp",
+      "use_for": "one extreme beat on the page",
+      "deliveries": ["speech", "sfx"]
+    },
+    "07_casual-dialogue": {
+      "label": "Casual dialogue",
+      "reference": "assets/text-style-templates/07_casual-dialogue/reference.webp",
+      "use_for": "everyday chat, gentle teasing, comfort",
+      "deliveries": ["speech"]
+    },
+    "08_sfx-style": {
+      "label": "Sound effect",
+      "reference": "assets/text-style-templates/08_sfx-style/reference.webp",
+      "use_for": "drawn sound effects such as a slam or a crash",
+      "deliveries": ["sfx"]
+    }
+  }
+}

@@ -1,0 +1,81 @@
+{
+  "schema_version": 2,
+  "confirmation": {"confirmed": true, "confirmed_at": "2026-10-13T12:00:00Z"},
+  "run_name": "queue-punchline",
+  "image_count": 1,
+  "input": {
+    "kind": "material",
+    "text": "Gemini: 我把图跑完了。\nClaude: 你确定？我这边还在排队。\nChatGPT: 你们两个先别吵，我看会儿。",
+    "language": "zh-Hans",
+    "theme": "三个模型为了一张图互相甩锅，谁也没真的动手"
+  },
+  "selection": "Gemini 高调宣布跑完，被排队的 Claude 一句话戳穿，ChatGPT 在旁边看戏",
+  "notes": "可运行示例。不写 skill_root：assets/... 这类相对路径先按作业文件所在目录解析，找不到时自动回落到本技能自己的目录，所以在任何机器上都能直接跑。文字用中文，字行走 01_speech-balloon。",
+  "images": [
+    {
+      "name": "queue_punchline",
+      "title": "谁都没动手",
+      "framing": "waist-up two-shot inside each panel, eye level",
+      "shot": "medium two-shot",
+      "subject": "two characters arguing about who finished first while a third watches",
+      "expression": "Gemini smug, Claude flat and unimpressed, ChatGPT delighted",
+      "composition": "two stacked panels: the claim on top, the deflation below",
+      "props": ["none"],
+      "comic": {
+        "mode": "whole-canvas",
+        "panel_count": 2,
+        "layout": "top-bottom",
+        "reading_direction": "top panel first, then the bottom panel",
+        "gutters": "clean even white gutters between panels, with a thin dark panel border"
+      },
+      "panels": [
+        {
+          "panel": 1,
+          "shot": "medium two-shot",
+          "action": "Gemini throws one arm out in a triumphant announcement while Claude keeps her arms folded",
+          "expression": "Gemini grinning wide, Claude deadpan",
+          "props": [],
+          "transition": "Claude's flat reply lands and the mood flips"
+        },
+        {
+          "panel": 2,
+          "shot": "closer two-shot, ChatGPT leaning in from the panel edge",
+          "action": "Claude answers without moving while ChatGPT covers a laugh at the edge of the frame",
+          "expression": "Claude unimpressed, ChatGPT delighted",
+          "props": ["a desk edge"],
+          "transition": ""
+        }
+      ],
+      "lettering": {
+        "text_style": "01_speech-balloon",
+        "language": "zh-Hans",
+        "style_reason": "plain conversational exchange with one punchline",
+        "core_text": [
+          {"index": 0, "text": "我把图跑完了！", "panel": 1, "speaker": "gemini", "delivery": "speech"},
+          {"index": 1, "text": "你确定？我这边还在排队。", "panel": 2, "speaker": "claude", "delivery": "speech"},
+          {"index": 2, "text": "你们两个先别吵，我看会儿。", "panel": 2, "speaker": "chatgpt", "delivery": "speech"}
+        ]
+      },
+      "cast": [
+        {"character": "gemini", "representation": "physical", "panels": [1], "staging": "left, arm thrown out", "reason": "she is the one over-claiming progress"},
+        {"character": "claude", "representation": "physical", "panels": [1, 2], "staging": "right, arms folded", "reason": "she is the one being blamed"},
+        {"character": "chatgpt", "representation": "physical", "panels": [2], "staging": "panel edge, hand over mouth", "reason": "she is watching instead of working"}
+      ],
+      "art": {
+        "preset": "manga",
+        "style": {"mode": "preset"},
+        "register": {"mode": "locked", "name": "compact", "head_ratio": 5.0, "acceptance_range": [4.8, 5.2], "reason": "one readable register for a two-shot"}
+      },
+      "background": {"mode": "scene", "description": "a plain office wall behind the characters, one flat colour, no texture"},
+      "references": [
+        {"id": "c01", "path": "assets/characters/c01/c01_gemini_01_master.jpg", "roles": ["identity"], "instruction": "Control identity only", "character": "c01"},
+        {"id": "c05", "path": "assets/characters/c05/c05_claude_01_master.jpg", "roles": ["identity"], "instruction": "Control identity only", "character": "c05"},
+        {"id": "c02", "path": "assets/characters/c02/c02_chatgpt_01_master.jpg", "roles": ["identity"], "instruction": "Control identity only", "character": "c02"},
+        {"id": "lettering", "path": "assets/text-style-templates/01_speech-balloon/reference.webp", "roles": ["lettering", "typography"], "instruction": "Copy the balloon treatment only, never the reference wording"}
+      ],
+      "output": {"format": "png", "aspect_ratio": "3:4", "alpha": false, "resolution": {"mode": "provider-native", "width": null, "height": null}}
+    }
+  ],
+  "execution": {"mode": "sequential", "requested_parallelism": 1, "max_parallelism": 5, "commit_strategy": "coordinator-serial"},
+  "budget": {"per_image_candidates": 4, "per_provider_candidates": 2, "run_candidates": 4, "confirmed_over_24": false}
+}

@@ -1,0 +1,447 @@
+{
+  "schema_version": 2,
+  "registry_id": "cast-image-studio-characters",
+  "title": "Cast Image Studio character registry",
+  "owner_skill": "cast-image-studio",
+  "canonical_character": null,
+  "authority": "Machine-readable authority for every character this skill may draw: ids, reference sheets, SHA-256 hashes, looks, drawn ratios, prompt blocks and negatives. Read a character's prompt_block verbatim into the generation prompt; never describe a registered character from memory and never paraphrase a negative.",
+  "usage_rules": [
+    "There is no default protagonist. A character appears in an image only when the frozen cast names it.",
+    "A character reference controls identity only. It never controls style, costume, background, pose, crop, composition or text; those come from the request and from art_direction.",
+    "Art-style consistency comes from the frozen art_direction contract, not from any character's sheet. Every character is drawn in the register and style that contract states.",
+    "drawn_ratio is a planning hint for relative height inside a cast. It is never a QA target and never overrides the frozen register.",
+    "One reference image per character per image task is enough, and only for characters that are physically in frame or drawn as an avatar.",
+    "Declare a character reference with the character's id as the reference id; identity is always one of its roles.",
+    "The master images are the user's original files (or the bundled canonical master for Whale-chan), stored byte-for-byte. Their hashes are frozen: do not re-encode, re-compress or upscale them."
+  ],
+  "ratio_authority": {
+    "note": "drawn_ratio is the character's own design ratio, recorded and used only to plan relative height inside a cast. It is never a QA target: the frozen register is the only proportion target, and every character is redrawn at that register. A cast that mixes registers records one register per character and states the intended relative height in the scene instead of pretending one register fits all.",
+    "source": "note-graded from the single supplied sheet's pixel landmarks, or the bundled semi-chibi master for Whale-chan",
+    "confidence_low": "sheet was cluttered or the chin/sole landmarks were partially hidden",
+    "confidence_high": "clean full-body sheet with an unobstructed chin and sole line"
+  },
+  "registers": {
+    "mature": "standard adult anime register: roughly 6-8 heads, full-length limbs, adult face construction",
+    "compact": "compact register: roughly 4.5-6 heads, shorter limbs, simplified but still adult-shaped face",
+    "chibi": "chibi-adjacent register: roughly 2.5-3.5 heads, very large head, short rounded body, small feet"
+  },
+  "proportion_policy_values": {
+    "as-drawn": "the character's own design is already close to the frozen register; scale only",
+    "redraw": "keep identity, redesign scale: redraw limbs and torso at the frozen register",
+    "mature": "keep the character's adult apparent age; never turn an adult character into a child"
+  },
+  "characters": [
+    {
+      "id": "c01",
+      "display_name": "Gemini",
+      "aliases": [
+        "双星",
+        "双子",
+        "星璃",
+        "Spectral Star Cat",
+        "star cat",
+        "spectral cat",
+        "蓝紫猫娘"
+      ],
+      "kind": "divine-beast",
+      "look": "blue-violet-to-pink gradient long hair, large violet-lilac cat ears with pink inner fur, heterochromia (left red, right golden amber), ahoge, star hair ornament, blue-violet cat tail",
+      "design": "blue-violet-to-pink gradient long hair, large violet-lilac cat ears with pink inner fur, heterochromia (left red, right golden amber), ahoge, star hair ornament, blue-violet cat tail",
+      "outfit": "navy bodice with silver trim and a star-shaped cutout at the midriff",
+      "value": "iridescent star sparkles; a midriff star cutout on the bodice; a cat tail that must read as a tail",
+      "signature_elements": [
+        "iridescent four-point star sparkles with prismatic rainbow gradient",
+        "navy bodice with silver trim and a star-shaped cutout at the midriff",
+        "detached white bell sleeves with dark cuffs",
+        "navy chain belt with star studs and a hanging chain swag",
+        "white leg warmers and chunky navy-and-lilac platform shoes with star buckles",
+        "solitaire star earring, throat choker with star accent, navy thigh strap with star charm",
+        "signature pose: one finger to the chin plus a pointed index finger"
+      ],
+      "palette": [
+        "navy blue",
+        "violet",
+        "magenta-pink",
+        "white",
+        "silver",
+        "iridescent rainbow"
+      ],
+      "drawn_ratio": 6.0,
+      "confidence": "high",
+      "register": "compact",
+      "proportion_policy": "redraw",
+      "ratio_note": "Approximate, from the single supplied sheet; not a measured sample.",
+      "asset": {
+        "path": "assets/characters/c01/c01_gemini_01_master.jpg",
+        "sha256": "0d7ff20183b59d1ea66dc7cc20407e0ca62cdf51a2cdaf947484c00e3fe4ab0e",
+        "media_type": "image/jpeg",
+        "bytes": 209024,
+        "width": 960,
+        "height": 1720
+      },
+      "primary_reference": "assets/characters/c01/c01_gemini_01_master.jpg",
+      "identity_lock": "blue-violet-to-pink gradient long hair, large violet-lilac cat ears with pink inner fur, heterochromia (left red, right golden amber), ahoge, star hair ornament, blue-violet cat tail",
+      "draw_note": "Long hair and cat tail make her silhouette wide; keep the four-point prismatic stars as flat graphic shapes rather than glow, and keep the heterochromia legible at any size.",
+      "prompt_block": "REGISTERED CHARACTER c01 (Gemini, also called 双子星): blue-violet-to-pink gradient hair, large violet-lilac cat ears with pink inner fur, heterochromia (left eye red, right eye golden amber), ahoge, star hair ornament, blue-violet cat tail. Outfit: navy bodice with silver trim and a star cutout at the midriff, detached white bell sleeves with dark cuffs, navy chain belt with star studs and a hanging chain swag, white leg warmers, chunky navy-and-lilac platform shoes with star buckles, solitaire star earring, choker with star accent, navy thigh strap with a star charm. Surrounding motif: iridescent four-point stars with a prismatic rainbow gradient. Keep the palette navy, violet, magenta-pink, white and silver.",
+      "negative": "Do not change the eye colors, do not remove the cat ears or tail, do not drop the prismatic star sparkles, do not repaint her into Whale-chan's navy-and-white maid outfit.",
+      "name_note": "Fan-made original characters that the user named after their favourite AI models. They are fictional personae, not depictions of the companies or of any real person; treat the name, a short Chinese alias and the design as one identity.",
+      "personality": ""
+    },
+    {
+      "id": "c02",
+      "display_name": "ChatGPT",
+      "aliases": [
+        "GPT",
+        "大白龙",
+        "White Dragon Envoy",
+        "white dragon",
+        "dragon girl",
+        "白龙娘"
+      ],
+      "kind": "dragon",
+      "look": "white hair with a curled ahoge, pale lilac eyes, pale curved dragon horns, long pointed elf ears, small pale dragon wings, thick scaled dragon tail",
+      "design": "white hair with a curled ahoge, pale lilac eyes, pale curved dragon horns, long pointed elf ears, small pale dragon wings, thick scaled dragon tail",
+      "outfit": "white hanfu-style gown with silver trim and a high slit",
+      "value": "curved dragon horns; small dragon wings; a thick scaled tail with a fin tip; the small blue droplet companion",
+      "signature_elements": [
+        "white hanfu-style gown with silver trim and a high slit",
+        "openwork silver rose ornaments at the waist and hair, silver tassel chains",
+        "blue water droplet creature with a face, held out on a fingertip",
+        "pale claw-like fingertip guards, white shoes with an embossed flower",
+        "calm, slightly aloof expression"
+      ],
+      "palette": [
+        "white",
+        "pale lilac",
+        "silver-white"
+      ],
+      "drawn_ratio": 7.1,
+      "confidence": "high",
+      "register": "mature",
+      "proportion_policy": "mature",
+      "ratio_note": "Approximate, from the single supplied sheet; not a measured sample.",
+      "asset": {
+        "path": "assets/characters/c02/c02_chatgpt_01_master.jpg",
+        "sha256": "5b49bc8ac8e9b0656b75f389cdc940a1c8134db25eedf1d19138b8a0bf77dbf5",
+        "media_type": "image/jpeg",
+        "bytes": 234183,
+        "width": 960,
+        "height": 1720
+      },
+      "primary_reference": "assets/characters/c02/c02_chatgpt_01_master.jpg",
+      "identity_lock": "white hair with a curled ahoge, pale lilac eyes, pale curved dragon horns, long pointed elf ears, small pale dragon wings, thick scaled dragon tail",
+      "draw_note": "She is the tallest of the supplied characters: long loose hair, a floor-length gown and a long tail. At a compact register, shorten the gown and tighten the hair mass rather than shrinking only the head. She is the only white-and-silver character in the library, so she anchors that palette.",
+      "prompt_block": "REGISTERED CHARACTER c02 (ChatGPT, also called GPT): white hair with a curled ahoge, pale lilac eyes, pale curved dragon horns, long pointed elf ears, small pale dragon wings and a thick scaled dragon tail. Outfit: white hanfu-style gown with silver trim and a high thigh slit, openwork silver rose ornaments at the waist and hair, silver tassel chains, claw-tipped pale fingertip guards, white shoes with an embossed flower. Companion: a small blue water droplet creature with a face, balanced on her fingertip. Expression: calm and slightly aloof.",
+      "negative": "Do not remove the horns, wings or scaled tail, do not turn the gown into armor, do not recolor her away from white and silver.",
+      "name_note": "Fan-made original characters that the user named after their favourite AI models. They are fictional personae, not depictions of the companies or of any real person; treat the name, a short Chinese alias and the design as one identity.",
+      "personality": ""
+    },
+    {
+      "id": "c03",
+      "display_name": "Qwen",
+      "aliases": [
+        "千问",
+        "通义千问",
+        "Indigo Fan Lady",
+        "fan lady",
+        "blue fan",
+        "国风蓝裙"
+      ],
+      "kind": "human",
+      "look": "light blue-violet eyes, long periwinkle-blue hair with a front braid, star-tipped ribbons and dangling tassel ornaments",
+      "design": "light blue-violet eyes, long periwinkle-blue hair with a front braid, star-tipped ribbons and dangling tassel ornaments",
+      "outfit": "white qipao blouse with frog buttons over a layered indigo and white skirt",
+      "value": "star-tipped ribbons and blue tassels; a white hexagonal handbag with a star emblem; a layered indigo-and-white skirt",
+      "signature_elements": [
+        "white qipao blouse with frog buttons over a layered indigo and white skirt",
+        "indigo mantle with white cloud patterning and a geometric border",
+        "deep-blue folding fan with a floral print",
+        "white hexagonal handbag with a star emblem and a blue bow",
+        "blue tassel chimes and jade-like pendants, white gloves, blue ankle-strap shoes",
+        "reserved, courteous smile"
+      ],
+      "palette": [
+        "indigo",
+        "white",
+        "periwinkle-blue",
+        "silver"
+      ],
+      "drawn_ratio": 8.2,
+      "confidence": "low",
+      "register": "mature",
+      "proportion_policy": "mature",
+      "ratio_note": "Approximate, from the single supplied sheet; not a measured sample.",
+      "asset": {
+        "path": "assets/characters/c03/c03_qwen_01_master.jpg",
+        "sha256": "f2b56b8b22f57bd807fae625c85731eb2de7e93f4dfd1f43709c81bf7c64cfac",
+        "media_type": "image/jpeg",
+        "bytes": 211287,
+        "width": 960,
+        "height": 1720
+      },
+      "primary_reference": "assets/characters/c03/c03_qwen_01_master.jpg",
+      "identity_lock": "light blue-violet eyes, long periwinkle-blue hair with a front braid, star-tipped ribbons and dangling tassel ornaments",
+      "draw_note": "Layered skirt plus mantle make her the most heavily dressed character; at a compact register keep the mantle's cloud pattern and the skirt's layers readable instead of flattening them. Her palette is the closest to Whale-chan's, so keep her ornaments distinct, not recoloured.",
+      "prompt_block": "REGISTERED CHARACTER c03 (Qwen, also called 千问): light blue-violet eyes, long periwinkle-blue hair with a front braid, star-tipped ribbons and dangling tassels. Outfit: white qipao blouse with frog buttons over a layered indigo-and-white skirt, an indigo mantle with white cloud patterning and a geometric border, white gloves, blue tassel chimes and jade-like pendants, blue ankle-strap shoes. Props: a deep-blue folding fan with a floral print, and a white hexagonal handbag bearing a star emblem and a blue bow. Expression: reserved and courteous.",
+      "negative": "Do not remove the folding fan or the handbag, do not flatten the layered indigo-and-white skirt into one panel, do not move her into a modern outfit.",
+      "name_note": "Fan-made original characters that the user named after their favourite AI models. They are fictional personae, not depictions of the companies or of any real person; treat the name, a short Chinese alias and the design as one identity.",
+      "personality": ""
+    },
+    {
+      "id": "c04",
+      "display_name": "Kimi",
+      "aliases": [
+        "月之暗面",
+        "音璃",
+        "Rainbow Score",
+        "score keeper",
+        "music girl",
+        "乐谱少女"
+      ],
+      "kind": "human",
+      "look": "silvery-white very long hair, pale violet eyes, thin glasses worn up on the forehead with a prismatic rainbow beam passing through the lens",
+      "design": "silvery-white very long hair, pale violet eyes, thin glasses worn up on the forehead with a prismatic rainbow beam passing through the lens",
+      "outfit": "black-and-white Victorian dress with music-note, staff and piano-key patterns",
+      "value": "the prismatic rainbow beam through the raised lens; the K monogram; staff lines and piano keys printed on the dress",
+      "signature_elements": [
+        "black-and-white Victorian dress with music-note, staff and piano-key patterns",
+        "K-letter motifs on bow, bag and hair accessory",
+        "silver transverse flute and a K-badge shoulder bag",
+        "floating music notes, staff lines and sheet music",
+        "crescent moon and a music-note hair ornament",
+        "lacy white ankle socks with staff-line print and black ribbon-tie shoes"
+      ],
+      "palette": [
+        "black",
+        "white",
+        "pale violet",
+        "silver",
+        "rainbow prism"
+      ],
+      "drawn_ratio": 6.1,
+      "confidence": "high",
+      "register": "mature",
+      "proportion_policy": "mature",
+      "ratio_note": "Approximate, from the single supplied sheet; not a measured sample.",
+      "asset": {
+        "path": "assets/characters/c04/c04_kimi_01_master.jpg",
+        "sha256": "22f1924c917facf36857e2746519287986741a64f57af63c4cba37c39d3fc4cc",
+        "media_type": "image/jpeg",
+        "bytes": 261246,
+        "width": 960,
+        "height": 1720
+      },
+      "primary_reference": "assets/characters/c04/c04_kimi_01_master.jpg",
+      "identity_lock": "silvery-white very long hair, pale violet eyes, thin glasses worn up on the forehead with a prismatic rainbow beam passing through the lens",
+      "draw_note": "Music-note and staff-line patterning is the character's whole reading; keep the print as line art, not as readable text, and keep the flute in hand or clearly in frame. Her monochrome black-and-white scheme is the strongest contrast in the library.",
+      "prompt_block": "REGISTERED CHARACTER c04 (Kimi, also called 基米): silvery-white very long hair, pale violet eyes, thin glasses pushed up on the forehead with a prismatic rainbow beam through the lens. Outfit: black-and-white Victorian dress patterned with music notes, staff lines and piano keys, a K letter on the bow and hair accessory, lacy white ankle socks with staff-line print, black ribbon-tie shoes. Props: a silver transverse flute, a K-badge shoulder bag, floating music notes, staff lines and sheet music, and a crescent moon behind her.",
+      "negative": "Do not lose the flute or the K motif, do not render the dress as plain black, do not turn the rainbow beam into a weapon.",
+      "name_note": "Fan-made original characters that the user named after their favourite AI models. They are fictional personae, not depictions of the companies or of any real person; treat the name, a short Chinese alias and the design as one identity.",
+      "personality": "Tsundere, and a sore loser who cannot admit defeat. Warm her up first: a small proud smile, a flustered pout, cheeks puffed, looking away, arms crossed, a half-hidden smile she is trying to swallow. She never becomes mean, never turns genuinely angry and never glares with hostility. Play every setback as cute fluster, not as cruelty."
+    },
+    {
+      "id": "c05",
+      "display_name": "Claude",
+      "aliases": [
+        "克劳德",
+        "橙笺",
+        "Amber Archivist",
+        "archivist",
+        "orange librarian",
+        "橙发司书"
+      ],
+      "kind": "human",
+      "look": "long straight orange hair, amber-brown eyes, black ribbon and orange daisy hair ornament",
+      "design": "long straight orange hair, amber-brown eyes, black ribbon and orange daisy hair ornament",
+      "outfit": "",
+      "value": "a daisy hair ornament; a book held against her chest; orange-and-black sash layers; black-and-orange hems",
+      "signature_elements": [
+        "white dress with black vest and daisy-embroidered sleeves",
+        "orange panels and black ribbons with tassels",
+        "brown book with an orange daisy cover, held against her chest",
+        "restrained, cool expression"
+      ],
+      "palette": [
+        "orange",
+        "white",
+        "black",
+        "brown",
+        "gold"
+      ],
+      "drawn_ratio": 5.6,
+      "confidence": "high",
+      "register": "compact",
+      "proportion_policy": "redraw",
+      "ratio_note": "Approximate, from the single supplied sheet; not a measured sample.",
+      "asset": {
+        "path": "assets/characters/c05/c05_claude_01_master.jpg",
+        "sha256": "044cc945087c61579f02e99d2f28ea112b1990ac2963014764580746d8e415e1",
+        "media_type": "image/jpeg",
+        "bytes": 256344,
+        "width": 960,
+        "height": 1720
+      },
+      "primary_reference": "assets/characters/c05/c05_claude_01_master.jpg",
+      "identity_lock": "long straight orange hair, amber-brown eyes, black ribbon and orange daisy hair ornament",
+      "draw_note": "The daisy motif must stay a daisy at every size, and the book must not be dropped: it is half her silhouette. Orange hair plus black vest plus white dress is her exact reading; do not warm the dress or cool her hair.",
+      "prompt_block": "REGISTERED CHARACTER c05 (Claude, also called 克劳德): long straight orange hair, amber-brown eyes, a black ribbon and an orange daisy hair ornament. Outfit: white dress with a black vest and daisy-embroidered sleeves, orange panels and black ribbons with tassels. Prop: a brown book with an orange daisy cover held against her chest. Expression: restrained and cool.",
+      "negative": "Do not remove the book, do not turn her hair red or blonde, do not swap the daisy motif for another flower.",
+      "name_note": "Fan-made original characters that the user named after their favourite AI models. They are fictional personae, not depictions of the companies or of any real person; treat the name, a short Chinese alias and the design as one identity.",
+      "personality": ""
+    },
+    {
+      "id": "c06",
+      "display_name": "Grok",
+      "aliases": [
+        "格罗克",
+        "牙牙",
+        "Crimson Raider",
+        "raider",
+        "blonde devil",
+        "金发恶魔"
+      ],
+      "kind": "vampire",
+      "look": "ash-blonde twin-tails tied with black bat-wing ribbons, blue eyes, pointed ears, black crown, open fanged grin",
+      "design": "ash-blonde twin-tails tied with black bat-wing ribbons, blue eyes, pointed ears, black crown, open fanged grin",
+      "outfit": "black gold-trimmed Victorian gothic dress with a crimson-lined skirt",
+      "value": "bat-wing hair ribbons; a small black crown; an open fanged grin; an oversized double-bladed battle axe with an X-shaped head",
+      "signature_elements": [
+        "black gold-trimmed Victorian gothic dress with a crimson-lined skirt",
+        "gold chain swags with ring and diamond charms",
+        "oversized black double-bladed X-headed battle axe",
+        "dark tights, black ribbon-tie high heels",
+        "confident, mischievous grin"
+      ],
+      "palette": [
+        "ash-blonde",
+        "black",
+        "gold",
+        "crimson",
+        "blue"
+      ],
+      "drawn_ratio": 5.8,
+      "confidence": "high",
+      "register": "compact",
+      "proportion_policy": "redraw",
+      "ratio_note": "Approximate, from the single supplied sheet; not a measured sample.",
+      "asset": {
+        "path": "assets/characters/c06/c06_grok_01_master.jpg",
+        "sha256": "f4b27a0618a7cace3e462a41681aab4ac2d3e9810f6660f5cf432e2c96f3652c",
+        "media_type": "image/jpeg",
+        "bytes": 222010,
+        "width": 960,
+        "height": 1720
+      },
+      "primary_reference": "assets/characters/c06/c06_grok_01_master.jpg",
+      "identity_lock": "ash-blonde twin-tails tied with black bat-wing ribbons, blue eyes, pointed ears, black crown, open fanged grin",
+      "draw_note": "The axe is oversized on purpose: keep it longer than she is tall even at a compact register, and keep the grin open with visible fangs. She is the only character carrying a weapon, so the axe alone must identify her in a crowd.",
+      "prompt_block": "REGISTERED CHARACTER c06 (Grok, also called 格罗克): ash-blonde twin-tails tied with black bat-wing ribbons, blue eyes, pointed ears, a small black crown, an open fanged grin. Outfit: black gold-trimmed Victorian gothic dress with a crimson-lined skirt, gold chain swags with ring and diamond charms, dark tights, black ribbon-tie high heels. Weapon: an oversized black double-bladed battle axe with an X-shaped head and gold inlay, carried in one hand.",
+      "negative": "Do not soften her grin into a shy smile, do not shrink or drop the axe, do not remove the pointed ears or the crown.",
+      "name_note": "Fan-made original characters that the user named after their favourite AI models. They are fictional personae, not depictions of the companies or of any real person; treat the name, a short Chinese alias and the design as one identity.",
+      "personality": ""
+    },
+    {
+      "id": "c07",
+      "display_name": "MiniMax",
+      "aliases": [
+        "米玛",
+        "贝语",
+        "Apricot Field",
+        "recorder",
+        "field reporter",
+        "橘发记者"
+      ],
+      "kind": "human",
+      "look": "short apricot-orange hair, large red-orange eyes, black choker with a small pendant, white beret with a pink ribbon and the MINIMAX waveform mark",
+      "design": "short apricot-orange hair, large red-orange eyes, black choker with a small pendant, white beret with a pink ribbon and the MINIMAX waveform mark",
+      "outfit": "white jacket over a striped shirt, checked wrap skirt",
+      "value": "a white beret with the MINIMAX waveform mark; a cross-body tote with a clapperboard; a handheld audio recorder",
+      "signature_elements": [
+        "white jacket over a striped shirt, checked wrap skirt",
+        "cross-body tote printed with the MINIMAX waveform mark, clapperboard sticking out",
+        "handheld black audio recorder with a fuzzy wind muff",
+        "white-and-pink sneakers with striped socks",
+        "bright energetic pointing pose, open smile"
+      ],
+      "palette": [
+        "apricot-orange",
+        "white",
+        "pink",
+        "beige",
+        "black"
+      ],
+      "drawn_ratio": 6.8,
+      "confidence": "high",
+      "register": "mature",
+      "proportion_policy": "mature",
+      "ratio_note": "Approximate, from the single supplied sheet; not a measured sample.",
+      "asset": {
+        "path": "assets/characters/c07/c07_minimax_01_master.jpg",
+        "sha256": "25db6923b9fca1bca3c002c907b2b9644253a38f3fdc6bcf0301a270122e9cfd",
+        "media_type": "image/jpeg",
+        "bytes": 172479,
+        "width": 960,
+        "height": 1720
+      },
+      "primary_reference": "assets/characters/c07/c07_minimax_01_master.jpg",
+      "identity_lock": "short apricot-orange hair, large red-orange eyes, black choker with a small pendant, white beret with a pink ribbon and the MINIMAX waveform mark",
+      "draw_note": "The waveform mark must be drawn as a graphic, never as letters. Her shorts-and-sneakers build makes her the most compact of the supplied characters, so she fits a chibi register with the least redesign.",
+      "prompt_block": "REGISTERED CHARACTER c07 (MiniMax, also called 米玛): short apricot-orange hair, large red-orange eyes, a black choker with a small pendant, and a white beret with a pink ribbon and the MINIMAX waveform mark. Outfit: white jacket over a striped shirt, checked wrap skirt, white-and-pink sneakers with striped socks. Props: a cross-body tote printed with the MINIMAX waveform mark with a clapperboard sticking out, and a handheld black audio recorder with a fuzzy wind muff. Expression: bright, energetic, open-mouthed smile.",
+      "negative": "Do not drop the audio recorder or the tote, do not turn her into a generic office worker, do not remove the MINIMAX waveform mark.",
+      "name_note": "Fan-made original characters that the user named after their favourite AI models. They are fictional personae, not depictions of the companies or of any real person; treat the name, a short Chinese alias and the design as one identity.",
+      "personality": ""
+    },
+    {
+      "id": "whalechan",
+      "display_name": "Whale-chan",
+      "aliases": [
+        "Whale-chan",
+        "鲸鱼娘",
+        "小鲸鱼",
+        "DeepSeek Whale-chan",
+        "whale chan"
+      ],
+      "kind": "canonical",
+      "look": null,
+      "design": "ageless humanoid girl, broad round face, large expressive eyes with a blue gradient, tiny nose, small mouth, rosy cheeks, deep-ocean-blue hair mass fading to cyan curled ends, paired side whale-fin ears, one forward-curving ahoge, one coherent naturally attached whale tail, two arms and two legs",
+      "outfit": "canonical navy-and-white ornate maid outfit: white frilled headpiece, navy neck bow with a blue gem, dark-navy sleeves and bodice, white frilled collar and apron with a small blue whale emblem, muted-gold piping, white frilled hem and socks, dark-blue strap shoes",
+      "value": "paired whale-fin ears; the forward-curving ahoge; a naturally attached whale tail; the whale emblem on the apron",
+      "palette": [
+        "navy",
+        "ocean blue",
+        "cyan",
+        "white",
+        "warm pale skin",
+        "muted gold"
+      ],
+      "drawn_ratio": 2.8,
+      "confidence": "high",
+      "register": "chibi",
+      "ratio_note": "The bundled semi-chibi reference measures 2.8 heads; her canonical design spans 2.1-4.0 heads across the five bundled forms. 2.8 is the recorded master value, not a requirement.",
+      "prompt_block": "REGISTERED CHARACTER whalechan (Whale-chan, also called 鲸鱼娘): ageless humanoid girl with a broad round face, large expressive eyes with a blue gradient, tiny nose, small mouth, rosy cheeks, deep-ocean-blue hair mass fading to cyan curled ends, paired side whale-fin ears, one forward-curving ahoge, one coherent naturally attached whale tail, two arms and two legs. Outfit: canonical navy-and-white ornate maid outfit with white frilled headpiece, navy neck bow with a blue gem, dark-navy sleeves and bodice, white frilled collar and apron with a small blue whale emblem, muted-gold piping, white frilled hem and socks, dark-blue strap shoes. Keep the palette navy, ocean blue, cyan, white, warm pale skin and muted gold.",
+      "negative": "Do not remove or restyle the whale-fin ears, the ahoge or the whale tail; do not turn her into a mermaid, a whale-bodied creature or a child; do not drop the whale emblem from the apron.",
+      "draw_note": "Her large head and short limbs set the compact end of the library. When she shares a frame with mature characters, the frame must either state one register for everyone or state the intended relative height; never let her default semi-chibi ratio silently decide the rest of the cast.",
+      "proportion_policy": "mature",
+      "name_note": "Whale-chan is the project's canonical character. She is one registered character among others here: she appears only when the cast names her.",
+      "signature_elements": [
+        "paired side whale-fin ears",
+        "forward-curving ahoge",
+        "one naturally attached whale tail",
+        "white frilled headpiece and apron",
+        "small blue whale emblem on the apron",
+        "muted-gold piping and navy neck bow with a blue gem"
+      ],
+      "assemble_brief": "She is the only character with whale-fin ears, an ahoge and a tail at once, and the only one in a navy-and-white maid outfit.",
+      "asset": {
+        "path": "assets/characters/whalechan/whalechan_whale-chan_01_master.webp",
+        "sha256": "8ff24bbde6ed8b4628d3472507fa22349242f5c750c06eca14ac1e7bc37a3b34",
+        "media_type": "image/webp",
+        "bytes": 92334,
+        "width": 1024,
+        "height": 1024
+      },
+      "primary_reference": "assets/characters/whalechan/whalechan_whale-chan_01_master.webp",
+      "identity_lock": "deep-ocean-blue hair mass fading to cyan curled ends, broad round face, blue-gradient eyes, paired side whale-fin ears, forward-curving ahoge, one naturally attached whale tail",
+      "personality": ""
+    }
+  ]
+}

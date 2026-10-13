@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "default": "manga",
+  "presets": {
+    "manga": {
+      "label": "Manga cel",
+      "summary": "The default comic finish: flat two-dimensional Japanese-comic shading with even linework. Use it for every panel of one comic so all panels look like they came from the same hand.",
+      "contract": {
+        "line": "crisp even-weight black to near-black navy contours, closed and confident, no sketchy or coloured linework, no painterly edges",
+        "shading": "flat cel shading in two hard steps with hard shadow edges, ambient occlusion only as a distinct tercel under drapery; absolutely no gradient, airbrush, rim-light bloom or volumetric light",
+        "highlights": "small hard-edged highlights on hair and eyes only, plus one crisp specular on metal trim",
+        "palette": "bright saturated anime hues over a warm neutral base; every character keeps her own hue family, all held inside one shared saturation and contrast level",
+        "finish": "flat two-dimensional animation cel artwork, matte surface, no photographic depth of field, no 3D render pass, no texture overlay. The picture must read as a drawn comic page, not as a rendered illustration or a photo"
+      },
+      "allowed_backgrounds": ["solid", "scene", "transparent"],
+      "notes": [
+        "Keep every panel of one comic on exactly this line weight, shading step count and contrast level. A panel that switches to rendered lighting breaks the set even when the drawing itself is correct.",
+        "Do not copy Whale-chan's face, hair, whale-fin ears, ahoge or maid outfit onto another character.",
+        "The style preset fixes line, shading and finish; identity always comes from each character's own sheet."
+      ]
+    },
+    "house": {
+      "label": "House whale line",
+      "summary": "The style the bundled Whale-chan references are drawn in. Use it when the cast must sit next to existing Whale-chan art without a visible seam.",
+      "contract": {
+        "line": "bold near-black navy contours of even weight, closed shapes, no sketchy or coloured linework",
+        "shading": "restrained soft cel shading in two clean steps, shadows following the form, never gradient airbrush",
+        "highlights": "sparse glossy highlights only on hair, eyes and metal trim",
+        "palette": "deep navy, ocean blue, cyan, white, warm pale skin, muted gold; each character keeps her own hue family inside that saturation range",
+        "finish": "clean flat-coloured anime illustration with crisp edges, no texture overlay, no 3D render pass"
+      },
+      "allowed_backgrounds": ["solid", "scene", "transparent"],
+      "notes": [
+        "Do not copy Whale-chan's face, hair, whale-fin ears, ahoge or maid outfit onto another character.",
+        "The style preset fixes line, shading and finish; identity always comes from each character's own sheet."
+      ]
+    },
+    "clean-anime": {
+      "label": "Clean anime",
+      "summary": "Neutral modern TV-anime finish. Use when the picture is not meant to match existing Whale-chan art.",
+      "contract": {
+        "line": "crisp dark-brown to black linework of even weight with clean corners",
+        "shading": "single-step cel shading with soft ambient occlusion under drapery",
+        "highlights": "small sharp highlights on hair and eyes",
+        "palette": "bright saturated hues over a warm neutral base, consistent across the cast",
+        "finish": "flat anime illustration with readable silhouettes and no painterly blending"
+      },
+      "allowed_backgrounds": ["solid", "scene", "transparent"],
+      "notes": [
+        "Keep every character on the same line weight and shading step count.",
+        "Do not add per-character rendering tricks; the style contract is shared."
+      ]
+    },
+    "soft-cel": {
+      "label": "Soft cel",
+      "summary": "Gentler pastel cel finish with slightly heavier rim light, for calm or emotional pictures.",
+      "contract": {
+        "line": "thin dark-grey linework, softened at the extremities",
+        "shading": "soft cel shading blended at the shadow edge with a light rim on every figure",
+        "highlights": "diffuse highlight bands across hair and fabric folds",
+        "palette": "muted pastels with one accent hue per character, kept at the same saturation",
+        "finish": "soft-edged flat illustration, no photographic texture"
+      },
+      "allowed_backgrounds": ["solid", "scene", "transparent"],
+      "notes": [
+        "Apply identical rim light and shadow softness to every character in frame.",
+        "Avoid value clash between characters; hold one contrast level for the whole image."
+      ]
+    }
+  }
+}

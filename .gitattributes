@@ -1,0 +1,16 @@
+# This skill is meant to be copied to other machines, including Linux and macOS.
+# Force LF in the repository so the Python scripts that carry a shebang stay runnable there.
+* text=auto eol=lf
+
+*.py   text eol=lf
+*.md   text eol=lf
+*.json text eol=lf
+*.txt  text eol=lf
+
+# Binary assets — never let git "normalise" an image.
+*.png  binary
+*.jpg  binary
+*.jpeg binary
+*.webp binary
+*.gif  binary
+*.ico  binary
